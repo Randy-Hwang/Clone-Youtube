@@ -1,7 +1,11 @@
-const join = (req, res) => res.send("Join");
+export const join = (req, res) => res.send("Join");
 
-const edit = (req, res) => res.send("Edit User");
+export const edit = (req, res) => res.send("Edit User");
 
-const remove = (req, res) => res.send("Remove User");
+export const remove = (req, res) => res.send("Remove User");
 
-export { join, edit, remove };
+export const login = (req, res) => res.send("login page");
+
+export const logout = (req, res) => res.send("logout");
+
+export const see = (req, res) => res.send("See User");
