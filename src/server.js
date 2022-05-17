@@ -15,6 +15,15 @@ const logger = morgan("dev");
 // morgan -> 정보를 조금 더 정교하게 줌.
 app.use(logger);
 
+// 더 쉽게 html 파일을 만들고 임포트 하기 쉬움.
+// 뷰 엔진을 pug로 설정하고 pug파일을 만들어두면 됨.
+// 적용하는 방법은 app.set("view engine", "pug");
+// views라고 적힌 폴더를 디폴트값으로 갖기 때문에 폴더를 만들어주어야 함.
+// 다만 npm run dev로 실행하였을 때, 기본 디렉토리는 package.json 파일이 있는 폴더가 기본 디렉토리가 됨
+// 기본디렉토리에는 views라는 폴더가 없고, src/views에 있으므로 수정이 필요
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
+
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
