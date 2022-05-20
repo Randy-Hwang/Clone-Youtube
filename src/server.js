@@ -15,6 +15,9 @@ const logger = morgan("dev");
 // morgan -> 정보를 조금 더 정교하게 줌.
 app.use(logger);
 
+// express가 html의 form 형식을 이해하고 정보를 우리에게 줄 수 있도록 하는 코드
+app.use(express.urlencoded({ extended: true }));
+
 // 더 쉽게 html 파일을 만들고 임포트 하기 쉬움.
 // 뷰 엔진을 pug로 설정하고 pug파일을 만들어두면 됨.
 // 적용하는 방법은 app.set("view engine", "pug");

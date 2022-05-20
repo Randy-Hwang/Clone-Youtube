@@ -1,4 +1,15 @@
 extends base.pug
 
 block content
-    h1 Edit Video!
+    h4 Change title of Video
+    //- action -> 프론트엔드에서 얻은 데이터를 어디로 보낼지 정할 수 있음
+    //- action 의 기본 method는 get. 즉, 세이브 버튼을 누르면
+    //- action에 적힌 url을 get으로 가져와줌
+    //- method를 post로 바꾸면 action에 적힌 url로 POST를 진행함.
+    //- action을 적지 않으면 현재 url에서 method 실행
+    //- 데이터를 백엔드로부터 얻어오는 것이 목적이라면 get
+    //- 데이터베이스를 수정하기 위함이라면 post
+    form(method="POST")
+        //- input에 이름을 넣어주지 않으면 req.body로 얻을 수 있는 정보가 없음. 이름을 꼭 정해둘 것.
+        input(name="title", placeholder="Video Title", value=video.title, required)
+        input(value="save", type="submit")
