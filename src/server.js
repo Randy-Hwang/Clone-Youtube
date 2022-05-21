@@ -1,3 +1,4 @@
+import "./db";
 // express를 express라는 이름으로 import
 import express from "express";
 import morgan from "morgan";

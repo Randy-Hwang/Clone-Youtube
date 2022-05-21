@@ -1,5 +1,11 @@
 import express from "express";
-import { watch, getEdit, postEdit } from "../controllers/videoController";
+import {
+  watch,
+  getEdit,
+  postEdit,
+  getUpload,
+  postUpload,
+} from "../controllers/videoController";
 
 const videoRouter = express.Router();
 
@@ -11,8 +17,8 @@ const videoRouter = express.Router();
 // 그러나 데이터베이스를 기반으로 url을 만들면 이런 정규식을 사용할 일은 없음..
 
 videoRouter.get("/:id(\\d+)", watch);
-
 // 아래의 url로 get 요청이 들어온다면 getEdit을, post요청이 들어온다면 postEdit을 불러오기
 videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
+videoRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default videoRouter;

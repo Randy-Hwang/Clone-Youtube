@@ -12,8 +12,9 @@ html(lang="ko")
         //- html에 기본적인 스타일링을 알아서 해주는 mvp.css
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body
-        main
+        header
             h1=pageTitle
+        main
             block content
             //- 중복되는 부분들은 partial이라는 폴더 안에 pug파일로 넣어두고,
             //- include 라는 코드를 활용하여 포함할 수 있다.
