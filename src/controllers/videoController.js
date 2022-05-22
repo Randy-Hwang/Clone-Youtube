@@ -1,4 +1,4 @@
-import "../models/video";
+import Video from "../models/video";
 
 // pug의 파일과 렌더하는 파일의 이름은 같아야 한다.
 // 파일에 띄어쓰기는 없어야 하고, 전부 소문자여야 한다.
@@ -42,5 +42,6 @@ export const getUpload = (req, res) => {
 
 export const postUpload = (req, res) => {
   const { title, description, hashtags } = req.body;
+  const video = new Video({});
   return res.redirect("/");
 };
