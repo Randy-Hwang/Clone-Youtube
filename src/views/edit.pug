@@ -1,7 +1,7 @@
 extends base.pug
 
 block content
-    h4 Change title of Video
+    h4 Update Video
     //- action -> 프론트엔드에서 얻은 데이터를 어디로 보낼지 정할 수 있음
     //- action 의 기본 method는 get. 즉, 세이브 버튼을 누르면
     //- action에 적힌 url을 get으로 가져와줌
@@ -12,4 +12,6 @@ block content
     form(method="POST")
         //- input에 이름을 넣어주지 않으면 req.body로 얻을 수 있는 정보가 없음. 이름을 꼭 정해둘 것.
         input(name="title", placeholder="Video Title", value=video.title, required)
+        input(name="Description", placeholder="Description", required, type="text", minlength=20, value=video.description)
+        input(name="Hashtags", placeholder="Hashtags, separated by comma.", required, type="text", value=video.hashtags.join())
         input(value="save", type="submit")

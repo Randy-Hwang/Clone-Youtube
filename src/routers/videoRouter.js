@@ -5,6 +5,7 @@ import {
   postEdit,
   getUpload,
   postUpload,
+  deleteVideo,
 } from "../controllers/videoController";
 
 const videoRouter = express.Router();
@@ -14,11 +15,13 @@ const videoRouter = express.Router();
 // express는 upload가 라우터가 아닌 변수로 인식하기 때문.
 // 따라서 /:id(=upload) 로 가게된다.
 // id가 숫자만 인식할 수 있도록 만들면 (\\d+) upload도 인식 가능함
-// 그러나 데이터베이스를 기반으로 url을 만들면 이런 정규식을 사용할 일은 없음..
+// 우리가 데이터베이스로 사용하는 몽구스는 24개의 16진수로 id값을 만듦
+// 따라서 이를 구분해주는 정규식[0-9a-f]{24} 필요
 
-videoRouter.get("/:id(\\d+)", watch);
+videoRouter.get("/:id([0-9a-f]{24})", watch);
 // 아래의 url로 get 요청이 들어온다면 getEdit을, post요청이 들어온다면 postEdit을 불러오기
-videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
+videoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+videoRouter.route("/:id([0-9a-f]{24})/delete").get(deleteVideo);
 videoRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default videoRouter;
