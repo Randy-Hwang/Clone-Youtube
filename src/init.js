@@ -2,6 +2,7 @@
 // 다른 모든 import해야할 것들은 init.js에 import
 import "./db";
 import "./models/Video";
+import "./models/User";
 import app from "./server";
 
 const PORT = 4000;
