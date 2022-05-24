@@ -1,4 +1,4 @@
-import Video from "../models/video";
+import Video from "../models/Video";
 
 // pug의 파일과 렌더하는 파일의 이름은 같아야 한다.
 // 파일에 띄어쓰기는 없어야 하고, 전부 소문자여야 한다.
